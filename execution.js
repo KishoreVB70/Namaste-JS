@@ -29,4 +29,13 @@ var ans = cubeIt(i);
     - After the function returns, the local execution context is popped from the stack
     - Once the whole code execution is completed, the global environment itself is popped out of the stack
     - The program is done after all this
+
+### Hoisting
+- In JS, we can call a function in the code before it's declaration in the code. And we can access a variable even before it is initialized in the code (It would return **undefined**). It is because, during the creation phase the entire code of the function is stored and during the execution phase, it is able to run it
+> Hoisting is the phenomenon of accessing variables and functions in JS before they are initialized in the code
+- JS hoisting is the **side effect of the phases** of execution context -> due to the creation phase, all variables are available before their initialization
+- If in the execution phase, we access them before initializing, it will return the values in memory
+- Undefined for variables and the actual function code for the function
+- This way functions can be invoked in the code before initializing
+- If a function is written as an arrow function, then it behaves like a variable and will be undefined
 */
