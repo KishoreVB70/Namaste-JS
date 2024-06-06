@@ -1,3 +1,30 @@
+//undefined -> no error as var
+console.log(a);
+
+// Hoisted in the global object
+var a = 20;
+
+// Reference error for accessing b before initialization
+console.log(b);
+
+// Reference error for accessing variable not part of memory -> Not defined
+console.log(x);
+
+// Hoisted in the script object in global execution context
+let b = 20;
+
+const c = 40;
+
+// Type error as const can't be reassigned
+c = 40;
+
+
+// Syntax error as let and const variables cannot be reinitialized
+var b = 40;
+
+// Syntax error as const must be initialized
+const l;
+
 /*
 ### Let and Const vs Var
 - Let and cost was introduced in [[ES6]]
