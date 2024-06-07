@@ -56,6 +56,40 @@ function normie2(normie1) {
 let firstClass = normie2(normie);
 
 // Arrow functions
+// Newest addition through ES6
 const arrow = () => {
     console.log("This is an arrow function");
 }
+
+/*
+### Functions in JS
+<aside> 💡 Functions are the heart of JS
+
+</aside>
+- Function Statement (or) Declaration
+    - Creating a function ⇒ Function Statement
+- Function Expression
+    - Functions are assigned to variables
+    - The major difference b/w expression and statement is Hoisting, functions are hoisted majava while variables are pucked up
+    - code
+	    ```jsx
+	    let b = function (){
+	    	console.log("This is b")
+	    }
+	    ```
+- Anonymous Function
+    - Function without a name
+    - Anonymous - Similar to statement but does not have a name
+    - Anonymous functions are used in place where the functions are plugged in as values
+    - An anonymous function is often used in function expression
+- Named Function Expression
+    - In a function expression we use assign a function statement to the variable instead of an anonymous functions
+- Parameters vs Arguments
+    - Arguments are values that are passed in the function call
+    - Parameters are local variables in the function - Label/Identifiers that get the values of arguments
+- First Class Functions or First class citizens
+	- It points to the ability of the function to be used as values and passed around
+    - The ability to use functions as values - First Class functions
+    - We can pass functions as arguments
+    - We can also return a function from a function
+*/
