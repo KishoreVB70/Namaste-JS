@@ -97,3 +97,11 @@ function printTimeOutVar() {
 
 printTimeOutVar();
 console.log("After")
+/*
+### SetTimeOut
+- JavaScript Waits for no one, if a timeout is set for a function, it will run others before it
+- Timeout is **Async**
+- Once the time of the timeout is over, then the callback function is called
+- Closure and the different scope of variables determine the value of the setTimeOut
+	- Refer the github for the detailed explanation of how setTimeOut behaves
+*/
