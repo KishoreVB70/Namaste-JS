@@ -80,7 +80,20 @@ function letSeparateVariable() {
         }, i * 1000)
     }
 }
-varF();
-letInForLoop();
-letSeparateVariable();
+
+// You can't use let, only use var
+
+function printTimeOutVar() {
+    for (var i = 1; i < 6; i++) {
+        function bot(i) {
+            // Now the variable i becomes local scopes and is a separate variable to the outer local scope i
+            setTimeout(() => {
+                console.log(i);
+            }, 1000 * i );
+        }
+        bot(i);
+    }
+}
+
+printTimeOutVar();
 console.log("After")
