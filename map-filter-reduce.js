@@ -119,3 +119,19 @@ const findRepetitionAllAge = (arr) => {
 
     console.log(resultObject);
 }
+
+/*
+get the array of all the first name of users whose age is below 30
+*/
+
+const below30 = (arr) => {
+    //use filter with map separately
+    const result1 = arr.filter((i) => i.age < 30);
+    const result2 = result1.map((i) => i.firstName);
+    
+    // Chaining them together
+    const final = arr.filter((i) => i.age < 30).map((i) => i.firstName);
+    console.log(final);
+}
+below30(users);
+
