@@ -32,4 +32,28 @@ const filterer = (arr) => {
     const evenNums = arr.filter((x) => x % 2 === 0);
     console.log(oddNums, evenNums);
 }
-filterer(arr);
+// filterer(arr);
+
+const reducer = (arr) => {
+
+    // find the sumof the array -> traditional method
+    let sum = 0;
+    for (let i = 0; i < arr.length; i ++) {
+        sum += arr[i];
+    }
+
+    // Find the sum of all elements of array
+    const redSum = arr.reduce((sum, i) => sum += i);
+
+    // Find largest num using reduce
+    // The second argument to reduce is the initial value of sum(the accumulator)
+    const largest = arr.reduce((sum, i) => {
+        if (i > sum) {
+            sum = i 
+        }
+        return sum;
+    }, 0);
+
+}
+
+reducer(arr)
