@@ -21,7 +21,25 @@ function calculate(fnc) {
     return output;
 }
 
-// Calculate the area
-console.log("Area is: ", calculate(area));
+// Map can be used instead of the calculate function
+
+// Map will iterate through the array and supply each of the index value of the array to the 
+// call back function and push the resulting return value into a new return array
+console.log(radius.map(area));
+
+
+// Creating calculate function similar to map
+Array.prototype.cali = function (logic) {
+    let output = [];
+    for (let i = 0; i < this.length; i++) {
+        output.push(logic(this[i]));
+    };
+    return output;
+};
+
+console.log(radius.cali(area));
+
+
+// Calculate the stuffs
 console.log("Circumference is: ", calculate(circumference));
 console.log("diameter is: ", calculate(diameter));
