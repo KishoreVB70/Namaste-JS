@@ -143,3 +143,36 @@ const below30 = (arr) => {
 }
 below30(users);
 
+/*
+### Map, Filter and Reduce
+- Map
+	- Used to transform an array
+	- It is called map as it maps each of the elements of the array into another value using the callback function logic
+	- Convert the values of an array into something else based on the callback function and return a new array
+	- The callback function should signify the operation done to one element
+	- 
+	- Takes in a callback function, iterates through the input array to perform the operation of the callback function and returns the array with the function operated values
+	- Code
+		```
+		areaArray = array.map(area);
+		```
+- Filter
+    - Used to Filter elements inside an array
+    - Similar to map, creates a new array by iterating the current array and using the callback function on each of the individual elements
+    - The callback function needs to have logic which returns **true or false**, if it is true, then the value is added to the new array
+- Reduce
+    - Iterate through an array and come up with a single value
+    - Eg
+	    - iterate through the entire array and find the sum of all the elements
+	    - Find largest num
+	- The callback function should take 2 arguments
+		1. **Accumulator** -> the variable which stores the sum like value
+		2. **Current** -> the current iteration value of the array
+	- The reduce function itself takes 2 arguments
+		1. The callback function
+		2. The initial value of accumulator
+- **Methods chaining**
+	- If a logic is needed such that it requires both filter or map or reduce, then they can be chained together
+	- Take a look at the github for code example
+	- `result = arr.filter(logic).reduce(logic)`
+*/
