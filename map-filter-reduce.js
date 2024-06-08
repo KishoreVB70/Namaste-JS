@@ -57,28 +57,65 @@ const reducer = (arr) => {
 
 // Real world examples
 
+const users = [
+    {
+        firstName: "Berna",
+        lastName: "Melben",
+        age: 22
+    },
+    {
+        firstName: "Ranjina",
+        lastName : "Ranjith",
+        age: 23
+    },
+    {
+        firstName: "Kane",
+        lastName: "Willamson",
+        age: 37
+    },
+    {
+        firstName: "Shri",
+        lastName: "Divya",
+        age: 22
+    }
+]
+
 /*
 from the list of users which contain their first name and last name,
 concatenate the first name with second name and push as a string to the array
 */
-
-const namer = () => {
-    const users = [
-        {
-            firstName: "Berna",
-            lastName: "Melben"
-        },
-        {
-            firstName: "Ranjina",
-            lastName : "Ranjith"
-        },
-        {
-            firstName: "Kane",
-            lastName: "Willamson"
-        }
-    ]
+const namer = (users) => {
     const fullNames = users.map( (x) => x.firstName + " " + x.lastName);
     console.log(fullNames);
 }
 
-namer();
+/*
+from the user objects, find the number of users with the same
+age as the given input
+*/
+const findSameAgerNum = (arr, age) => {
+    const result = arr.reduce((acc, cur) => {
+        if (cur.age === age) {
+            acc += 1;
+        }
+        return acc;
+    },0);
+    console.log(result);
+}
+
+/*
+Return an object of each value
+*/
+const findRepetitionAllAge = (arr) => {
+    const resultObject = arr.reduce( (acc, curr) => {
+        // Check if the element is already present in the object
+        if (acc[curr.age]) {
+            acc[curr.age]++
+        } else {
+            acc[curr.age] = 1;
+        }
+        return acc;
+    }, {})
+
+    console.log(resultObject);
+}
