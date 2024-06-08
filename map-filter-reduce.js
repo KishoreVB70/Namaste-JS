@@ -1,6 +1,5 @@
 const arr = [4,12,24,88, 9];
 
-
 const mapper =  (arr)=> {
     // Map function
     console.log(arr.map(doubler));
@@ -56,4 +55,32 @@ const reducer = (arr) => {
 
 }
 
-reducer(arr)
+// Real world examples
+
+/*
+from the list of users which contain their first name and last name,
+concatenate the first name with second name and push as a string to the array
+*/
+
+const namer = () => {
+    const users = [
+        {
+            firstName: "Berna",
+            lastName: "Melben"
+        },
+        {
+            firstName: "Ranjina",
+            lastName : "Ranjith"
+        },
+        {
+            firstName: "Kane",
+            lastName: "Willamson"
+        }
+    ]
+    const fullNames = users.map((x) => {
+        return (x.firstName + " " + x.lastName);
+    })
+    console.log(fullNames);
+}
+
+namer();
