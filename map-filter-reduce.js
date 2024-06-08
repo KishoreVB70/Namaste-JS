@@ -77,9 +77,7 @@ const namer = () => {
             lastName: "Willamson"
         }
     ]
-    const fullNames = users.map((x) => {
-        return (x.firstName + " " + x.lastName);
-    })
+    const fullNames = users.map( (x) => x.firstName + " " + x.lastName);
     console.log(fullNames);
 }
 
