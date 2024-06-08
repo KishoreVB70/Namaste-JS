@@ -131,7 +131,15 @@ const below30 = (arr) => {
     
     // Chaining them together
     const final = arr.filter((i) => i.age < 30).map((i) => i.firstName);
-    console.log(final);
+
+    // using reduce instead
+    const redFinal = arr.reduce((acc, cur) => {
+        if (cur.age < 30) {
+            acc.push(cur.firstName);
+        }
+        return acc;
+    }, [])
+    console.log(redFinal);
 }
 below30(users);
 
