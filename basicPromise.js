@@ -76,3 +76,29 @@ console.log("Before resolving: ", user);
 // Promise { <fulfilled>: Response }
 // Promise object contains the appropriate information under the response object
 user.then(() =>  console.log("After resolving: ", user) );
+
+/*
+##### Promises
+- Most important topic in JS
+- Promises evolved from callbacks
+- Definition of `Promise`
+	- **Object** representing the eventual completion or a failure of async operation
+- The API's instead of calling the callback function and then returning the info, it will straight away return a **promise**
+- Promise is an **object** which contains the return data of the API
+- `Promise` object
+	- Promise state
+		- initially `pending`
+		- `fulfilled` if resolved successfully
+		- `rejected` if operation failed
+	- Promise result
+		- Initially `undefined`
+		- `Response`  if fulfilled
+- Initially the object would be pending
+- After sometime, the data would be returned collected and the object would contain the appropriate data
+- A callback function can be attached to the promise object which would be executed when the promise is **resolved**
+	- The attachment is done through the `then` keyword
+- Solving issues with the callback way
+	1. Promises brings us back the control we lost when using vanilla callbacks
+	2. Promises chained without the variable solve the pyramid of doom issue as they are chained vertically instead of horizontally
+- Promises are **immutable** -> you can't change the resolved data by mistake
+*/
