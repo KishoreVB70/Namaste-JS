@@ -55,14 +55,18 @@ function updateDetails(obj) {
 const myfunc = async() => {
     console.log("I'm an async function");
 
-    const result = await createOrder(cart);
-    console.log(`Your Order id: ${result.orderId} and cost is: ${result.cost}`);
-
-    const result1 = await makePayment(result);
-    console.log("cost is", result1.cost);
-
-    const result2 = await updateDetails(result1);
-    console.log("Number of days: ", result2.days);
+    try {
+        const result = await createOrder(cart);
+        console.log(`Your Order id: ${result.orderId} and cost is: ${result.cost}`);
+    
+        const result1 = await makePayment(result);
+        console.log("cost is", result1.cost);
+    
+        const result2 = await updateDetails(result1);
+        console.log("Number of days: ", result2.days);
+    } catch(error) {
+        console.log(error.message);
+    }
 
     // The code inside only this function will wait till the promise is resolved
     // This log will not be printed till the promise is resolved
