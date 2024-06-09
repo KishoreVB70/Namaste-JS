@@ -1,5 +1,8 @@
 const isValid = cart => cart.length <= 5
 
+const cart = ["XM5", "Legion7i", "LBP"];
+const cart1 = ["XM5", "Legion7i", "LBP", "f", "p", "c"];
+
 function createOrder(cart) {
     const promise = new Promise((resolve, reject) => {
 
@@ -10,9 +13,18 @@ function createOrder(cart) {
         }
 
         // Resovle
+        // Whatever is attached to the resolve is made available to the callback function
+        // through then method
         const orderId = 1;
-        resolve(orderId);
-    })
+
+        // Fake delay
+        setTimeout(() => resolve({'orderId': orderId}), 2000);
+    });
+
     return promise;
 }
 
+const result = createOrder(cart);
+console.log(result);
+// What is returned through resolve is available as paramter of the callback function
+result.then(obj => console.log(obj));
