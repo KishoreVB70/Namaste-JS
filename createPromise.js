@@ -73,3 +73,23 @@ createOrder(cart)
 // The code in the mean time
 console.log("This is the good times");
 
+/*
+##### Create promises
+- Function constructor
+	- To create a promise, the promise constructor is used `new Promise()`
+	- The Promise constructor takes 2 arguments
+	1. `resolve`
+	2. `reject`
+- whatever data attached to resolve method(`resolve(data)`) will be returned and be handled by the `then` method
+- Whatever data attached to reject method(`reject(message)`) will be returned and be handled by the `catch` method
+- Error handling -> `catch`
+	- Catch block is used to deal with the failed promise
+	- The input to the callback function is the variable attached to the `reject` method (similar to resolve)
+	- One catch can be used for an entire chain of `then`
+- Promise chaining
+	- Code
+		- ![[Pasted image 20240609130104.png]]
+	- The most important thing to remember during chaining is that always the previous chain must **return**, either a value or a variable **in order to access** something from the previous chain
+	- We can also keep separate `catch` for each `then`
+		- Doing this will make the next `then` run even if the previous `then` has failed
+*/
