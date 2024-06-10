@@ -18,7 +18,7 @@ const makePayment = (obj) => {
                 rej(error);
             }
             res("Payment made");
-        }, 100)
+        }, 1000)
     })
 }
 
@@ -30,14 +30,14 @@ const update = (obj) => {
                 rej(error);
             }
             res("Updated stuff");
-        }, 10000)
+        }, 3000)
     })
 }
 
 const items = [1,2,3,4,5,6];
 const obj = {
     "cost": 555,
-    "items": 5
+    "items": 6
 }
 console.log("start");
 
@@ -96,7 +96,22 @@ function race() {
         .catch(err => console.log("err", err.message));
 }
 
-all();
+function fany() {
+    const result = Promise.any([pushCart(obj), makePayment(obj), update(obj)]);
+    result.then(res => console.log("ans: ", res))
+        .catch(err => console.log("err: ", err.message));
+    async function asynfunc() {
+        try {
+            const result = await Promise.any([pushCart(obj), makePayment(obj), update(obj)]);
+            console.log("ans: ", result);
+        } catch (err) {
+            console.log("err: ", err.message);  
+        }
+    }
+    asynfunc();
+}
+
+fany();
 
 
 console.log("End");
