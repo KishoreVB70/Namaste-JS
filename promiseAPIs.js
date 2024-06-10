@@ -25,7 +25,7 @@ const makePayment = (obj) => {
 const update = (obj) => {
     return new Promise((res, rej) => {
         setTimeout(() => {
-            if (obj.cost < 50) {
+            if (obj.cost < 5000) {
                 const error = new Error("Too little cost");
                 rej(error);
             }
@@ -97,9 +97,12 @@ function race() {
 }
 
 function fany() {
+    // If all promises are rejected
+    // The error is an array of all the errors
+    // the error message is - all promises are rejected
     const result = Promise.any([pushCart(obj), makePayment(obj), update(obj)]);
     result.then(res => console.log("ans: ", res))
-        .catch(err => console.log("err: ", err.message));
+        .catch(err => console.log("err: ", err));
     async function asynfunc() {
         try {
             const result = await Promise.any([pushCart(obj), makePayment(obj), update(obj)]);
