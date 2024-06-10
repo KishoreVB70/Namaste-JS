@@ -56,17 +56,23 @@ function all() {
 
 function settle() {
     const result = Promise.allSettled([pushCart(obj), makePayment(obj), update(obj)]);
-    
-    result.then((res) => console.log("from then: ", res))
-    .catch(error => console.log(error.message));
+
+    result.then((res) => handleResult(res));
     
     async function asynfunc() {
         // Try catch block is not required for Promise.allSettled as it is going to resolve no matter what
         const result = await Promise.allSettled([pushCart(obj), makePayment(obj), update(obj)]);
-        console.log("from async: ", result);
+        handleResult(result);
     }
     asynfunc();
+
+    function handleResult(result) {
+        const rejectedPromises = result.filter((i) => i.status == "rejected");
+        const fulfilledPromises = result.filter((i) => i.status == "fulfilled");
+        console.log("Fulfilled promises: ", fulfilledPromises.map(i => i.value));
+        console.log("Rejected message: ", rejectedPromises.map(i => i.reason.message));
+    }
 }
-all();
+settle();
 
 console.log("End");
