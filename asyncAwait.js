@@ -159,5 +159,26 @@ function importantExample() {
     myAsyncfunc1();
 }
 
+async function fetchExample() {
+    const API = "https://api.github.com/users/kishorevb70";
+    const fetcher = async() => {
+        // Fetch returns a promise
+        const showDown =  await fetch(API);
+        // data.json is actualy an external API function, it also returns a promise
+        // We await till the value is resolved
+        console.log(await showDown.json());
+
+        // Proper way to do is
+        const jsonValue = await showDown.json();
+        console.log(jsonValue);
+
+
+    }
+    fetcher();
+    console.log("Waiting to fetch the user");
+}
+
+fetchExample();
+
 
 
