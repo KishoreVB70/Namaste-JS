@@ -186,5 +186,24 @@ async function fetchExample() {
 
 fetchExample();
 
+/*
+##### Async await
+- Async await is just a **syntactic sugar** over `.then`
+	- Async await is better for sequential promises as it **doesn't have chaining** which would reduce the readability of the code
+	- Async await is easier to understand
+- `async` keyword is placed before a function to indicate it is an asynchronous function
+- `async` function will always return a promise
+	- Even if you return a normal value, JS will wrap that value into a promise and return it
+- `async` and `await` combo is used to handle Promises
+- `await` keyword is used in front of the Promise
+- `await` can be used only inside an async function
+	- `const value = await promise`
+- Issue with `.then`
+	- Using the `then` statement, the sequences of the code we wanted to stop, We can stop only one function
+	- Using `await` we can stop the entire proceeding in that scope, the code will move on to the outer scope
+- After `await` keyword, the code below it in that particular scope will not be executed **unless** the promise is **resolved**
+- The mechanism is that the async function will be **pushed out of the call stack** 
+- Once after the promise is resolved, the async function will be **back** into the call stack
+*/
 
 
