@@ -77,49 +77,87 @@ function cartExample() {
     
     myfunc();
     console.log("End");
+} 
+
+function confusionExample() {
+    function fulfilCart() {
+        return promise1 = new Promise((res, rej) => {
+            setTimeout(() => {
+                res("cart fulfilled");
+            }, 2000);
+        })
+    }
+    
+    function makePayment() {
+        return promise2 = new Promise((res, rej) => {
+            setTimeout(() => {
+                res("payment done");
+            }, 1000);
+        })
+    }
+    
+    console.log("False end");
+    
+    const myAsyncfunc1 = async() => {
+        const value = await fulfilCart();
+        console.log("from Async function: ", value);
+    }
+    
+    const myAsyncfunc2 = async() => {
+        const value = await makePayment();
+        console.log("from async function: ", value);
+    }
+    
+    myAsyncfunc1();
+    myAsyncfunc2();
+    
+    fulfilCart().then((res) => console.log("From then: ", res));
+    makePayment().then((res) => console.log("From then: ", res));
+    
+    
+    setTimeout(() => {
+        console.log("Timeout");
+    }, 1000)
+    
+    console.log("Correct end");
+
 }
 
-
-function fulfilCart() {
-    console.log("Hi from fulfil cart");
-    return promise1 = new Promise((res, rej) => {
+function importantExample() {
+    const promise1 = new Promise((res, rej) => {
         setTimeout(() => {
             res("cart fulfilled");
-        }, 2000);
+        }, 1000);
     })
-}
-
-function makePayment() {
-    console.log("Hi from make payment");
-    return promise2 = new Promise((res, rej) => {
+    
+    
+    const promise2 = new Promise((res, rej) => {
         setTimeout(() => {
             res("payment done");
-        }, 3000);
+        }, 0.1);
     })
+    
+    
+    const myAsyncfunc1 = async() => {
+        const value = await promise1;
+        console.log("from Async function: ", value);
+    
+        async function bot() {
+            const value2 = await promise2;
+            console.log("Value2: ", value2);
+        }
+        bot();
+    
+        //Kutty end is printed even though the promise has already been resolved
+        // This is because after the await, the execution is popped off even though
+        // It is already been resolved
+        console.log("Kutty end");
+    }
+    
+    console.log("end");
+    
+    myAsyncfunc1();
 }
 
-console.log("False end");
-
-const myAsyncfunc1 = async() => {
-    const value = await fulfilCart();
-    console.log("Value from the async function: ", value);
-}
-
-const myAsyncfunc2 = async() => {
-    const value = await makePayment();
-    console.log("Value from the async function: ", value);
-}
 
 
-myAsyncfunc1();
-myAsyncfunc2();
-
-fulfilCart().then((res) => console.log("From then: ", res));
-makePayment().then((res) => console.log("From then: ", res));
-
-
-setTimeout(() => {
-    console.log("Timeout");
-}, 1000)
-
-console.log("Correct end");
