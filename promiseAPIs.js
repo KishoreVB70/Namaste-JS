@@ -67,10 +67,13 @@ function settle() {
     asynfunc();
 
     function handleResult(result) {
-        const rejectedPromises = result.filter((i) => i.status == "rejected");
-        const fulfilledPromises = result.filter((i) => i.status == "fulfilled");
-        console.log("Fulfilled promises: ", fulfilledPromises.map(i => i.value));
-        console.log("Rejected message: ", rejectedPromises.map(i => i.reason.message));
+        console.log(
+            "Fulfilled promises: ",
+            result.filter(i => i.status == "fulfilled").map(i => i.value)
+        );
+        console.log(
+            "Rejected message: ", 
+            result.filter(i => i.status == "rejected").map(i => i.reason.message));
     }
 }
 settle();
