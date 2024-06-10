@@ -79,27 +79,34 @@ function cartExample() {
     console.log("End");
 }
 
-const promise1 = new Promise((res, rej) => {
-    setTimeout(() => {
-        res("Hi1");
-    }, 2000);
-})
 
-const promise2 = new Promise((res, rej) => {
-    setTimeout(() => {
-        res("Hi2");
-    }, 1000);
-})
+function fulfilCart() {
+    console.log("Hi from fulfil cart");
+    return promise1 = new Promise((res, rej) => {
+        setTimeout(() => {
+            res("cart fulfilled");
+        }, 2000);
+    })
+}
+
+function makePayment() {
+    console.log("Hi from make payment");
+    return promise2 = new Promise((res, rej) => {
+        setTimeout(() => {
+            res("payment done");
+        }, 3000);
+    })
+}
 
 console.log("False end");
 
 const myAsyncfunc1 = async() => {
-    const value = await promise1;
+    const value = await fulfilCart();
     console.log("Value from the async function: ", value);
 }
 
 const myAsyncfunc2 = async() => {
-    const value = await promise2;
+    const value = await makePayment();
     console.log("Value from the async function: ", value);
 }
 
@@ -107,8 +114,8 @@ const myAsyncfunc2 = async() => {
 myAsyncfunc1();
 myAsyncfunc2();
 
-promise1.then((res) => console.log("From then: ", res));
-promise2.then((res) => console.log("From then: ", res));
+fulfilCart().then((res) => console.log("From then: ", res));
+makePayment().then((res) => console.log("From then: ", res));
 
 
 setTimeout(() => {
