@@ -162,15 +162,21 @@ function importantExample() {
 async function fetchExample() {
     const API = "https://api.github.com/users/kishorevb70";
     const fetcher = async() => {
-        // Fetch returns a promise
-        const showDown =  await fetch(API);
-        // data.json is actualy an external API function, it also returns a promise
-        // We await till the value is resolved
-        console.log(await showDown.json());
 
-        // Proper way to do is
-        const jsonValue = await showDown.json();
-        console.log(jsonValue);
+        try {
+            const showDown =  await fetch(API);
+            // data.json is actualy an external API function, it also returns a promise
+            // We await till the value is resolved    
+            // Proper way to do is
+            const jsonValue = await showDown.json();
+            console.log(jsonValue);
+        } catch(error) {
+            console.log(error.message);
+        }
+
+        // No, since it is inside the async function, the function will be pushed out of stack
+        // after encountering the await
+        console.log("Will this run before the await??");
 
 
     }
