@@ -18,8 +18,18 @@ p3 = new Promise((res, rej) => {
 
 console.log("start");
 
-const result = Promise.all([p1,p2,p3]);
-result.then(() => console.log(result))
-.catch(error => console.log(error.message));
+function all() {
+    const result = Promise.all([p1,p2,p3]);
 
-console.log("End");
+    result.then((res) => console.log("from then: ", res))
+    .catch(error => console.log(error.message));
+    
+    async function allsync() {
+    const result = await Promise.all([p1,p2,p3]);
+    console.log("from async: ", result);
+    }
+    allsync();
+    
+    console.log("End");
+}
+all();
