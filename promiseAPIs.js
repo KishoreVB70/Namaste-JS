@@ -1,31 +1,36 @@
 const pushCart = (obj) => {
     return new Promise((res, rej) => {
-        if (obj.items > 5) {
-            const error = new Error("Many objects");
-            rej(error);
-        }
-        res("Pushed to cart");
-
+        setTimeout(() => {
+            if (obj.items > 5) {
+                const error = new Error("Many objects");
+                rej(error);
+            }
+            res("Pushed to cart");
+        }, 1000)
     })
 }
 
 const makePayment = (obj) => {
     return new Promise((res, rej) => {
-        if (obj.cost > 500) {
-            const error = new Error("Too much cost");
-            rej(error);
-        }
-        res("Payment made");
+        setTimeout(() => {
+            if (obj.cost > 500) {
+                const error = new Error("Too much cost");
+                rej(error);
+            }
+            res("Payment made");
+        }, 2000)
     })
 }
 
 const update = (obj) => {
     return new Promise((res, rej) => {
-        if (obj.cost < 50) {
-            const error = new Error("Too little cost");
-            rej(error);
-        }
-        res("Updated stuff");
+        setTimeout(() => {
+            if (obj.cost < 50) {
+                const error = new Error("Too little cost");
+                rej(error);
+            }
+            res("Updated stuff");
+        }, 3000)
     })
 }
 
@@ -76,6 +81,8 @@ function settle() {
             result.filter(i => i.status == "rejected").map(i => i.reason.message));
     }
 }
+
 settle();
+
 
 console.log("End");
